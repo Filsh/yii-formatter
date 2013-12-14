@@ -16,6 +16,11 @@ In order to start using the formatters you need to configure it for your applica
 ),
 ```
 
+## Dependency
+
+For support phone number formating your nead setup extension
+https://github.com/Filsh/yii-libphonenumber.git
+
 ## Usage
 
 Once you have configured the formatted you can use it by calling the format component.
