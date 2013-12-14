@@ -7,8 +7,6 @@
  * @package crisu83.yii-formatter.components
  */
 
-Yii::import('vendor.crisu83.yii-formatter.formatters.*');
-
 class Formatter extends CFormatter
 {
 	/**

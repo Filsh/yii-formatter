@@ -17,6 +17,7 @@ abstract class BaseFormatter extends CComponent
 		'decimal'=>'DecimalFormatter',
 		'number'=>'NumberFormatter',
 		'percentage'=>'PercentageFormatter',
+		'phone'=>'PhoneFormatter',
 	);
 
 	/**
