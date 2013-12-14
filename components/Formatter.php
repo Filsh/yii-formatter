@@ -13,11 +13,6 @@ class Formatter extends CFormatter
      * @var array an array of formatter default configurations (name=>config).
      */
     public $formatters = array();
-
-    /**
-     * @var CLocale the locale currently used for formatting values
-     */
-    private $_locale;
     
     /**
      * Calls the run formatter method when its shortcut is invoked.
@@ -37,32 +32,6 @@ class Formatter extends CFormatter
         } else {
             return parent::__call($name, $parameters);
         }
-    }
-
-    /**
-     * Set the locale to use for formatting values.
-     * @param CLocale|string $locale an instance of CLocale or a locale ID
-     */
-    public function setLocale($locale)
-    {
-        if(is_string($locale)) {
-            $locale = CLocale::getInstance($locale);
-        }
-        
-        $this->sizeFormat['decimalSeparator'] = $locale->getNumberSymbol('decimal');
-        $this->_locale=$locale;
-    }
-
-    /**
-     * @return CLocale $locale the locale currently used for formatting values
-     */
-    public function getLocale()
-    {
-        if($this->_locale === null) {
-            $this->setLocale(Yii::app()->locale);
-        }
-        
-        return $this->_locale;
     }
     
     /**
@@ -111,10 +80,6 @@ class Formatter extends CFormatter
      */
     protected function createFormatter($format, $params)
     {
-        if(!isset($params['locale'])) {
-            $params['locale'] = $this->getLocale();
-        }
-        
         return BaseFormatter::createFormatter($format, $params);
     }
 }

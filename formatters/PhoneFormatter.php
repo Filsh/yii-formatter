@@ -8,6 +8,8 @@
 
 class PhoneFormatter extends BaseFormatter
 {
+    public $country;
+    
     /**
      * Formats the given value.
      * @param string $value the value to format.
@@ -15,10 +17,13 @@ class PhoneFormatter extends BaseFormatter
      */
     public function format($value)
     {
-        $cc = $this->locale->getTerritoryID($this->locale->getId());
+        if(empty($this->country)) {
+            throw new Exception('Invalid country code.');
+        }
+        
         $phoneNumber = Yii::app()->phoneNumber;
-        $mPhoneNumber = $phoneNumber->parse($value, $cc);
-
+        $mPhoneNumber = $phoneNumber->parse($value, $this->country);
+        
         if (!$phoneNumber->validate($mPhoneNumber)) {
             return '';
         } else {
