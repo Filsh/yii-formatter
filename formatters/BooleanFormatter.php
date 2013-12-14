@@ -9,24 +9,24 @@
 
 class BooleanFormatter extends BaseFormatter
 {
-	/**
-	 * @var string the true value to format to.
-	 */
-	public $trueValue = 'Yes';
-	/**
-	 * @var string the false value to format to.
-	 */
-	public $falseValue = 'No';
+    /**
+     * @var string the true value to format to.
+     */
+    public $trueValue = 'Yes';
+    /**
+     * @var string the false value to format to.
+     */
+    public $falseValue = 'No';
 
-	/**
-	 * Formats the given value.
-	 * @param string $value the value to format.
-	 * @return string the formatted value.
-	 */
-	public function format($value)
-	{
-		if (!isset($value))
-			return null;
-		return $value ? $this->trueValue : $this->falseValue;
-	}
+    /**
+     * Formats the given value.
+     * @param string $value the value to format.
+     * @return string the formatted value.
+     */
+    public function format($value)
+    {
+        if (!isset($value))
+            return null;
+        return $value ? $this->trueValue : $this->falseValue;
+    }
 }

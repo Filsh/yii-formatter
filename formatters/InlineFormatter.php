@@ -9,23 +9,23 @@
 
 class InlineFormatter extends BaseFormatter
 {
-	/**
-	 * @var array the callable format method.
-	 */
-	public $method;
-	/**
-	 * @var array additional parameters for the formatter.
-	 */
-	public $params;
+    /**
+     * @var array the callable format method.
+     */
+    public $method;
+    /**
+     * @var array additional parameters for the formatter.
+     */
+    public $params;
 
-	/**
-	 * Formats the given value.
-	 * @param string $value the value to format.
-	 * @return string the formatted value.
-	 */
-	public function format($value)
-	{
-		$method = $this->method;
-		return call_user_func_array($method, array($value, $this->params));
-	}
+    /**
+     * Formats the given value.
+     * @param string $value the value to format.
+     * @return string the formatted value.
+     */
+    public function format($value)
+    {
+        $method = $this->method;
+        return call_user_func_array($method, array($value, $this->params));
+    }
 }

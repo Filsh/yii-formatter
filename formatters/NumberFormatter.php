@@ -9,19 +9,19 @@
 
 class NumberFormatter extends BaseFormatter
 {
-	/**
-	 * @var array the format configurations.
-	 * @see CNumberFormatter::formatNumber
-	 */
-	public $format;
+    /**
+     * @var array the format configurations.
+     * @see CNumberFormatter::formatNumber
+     */
+    public $format;
 
-	/**
-	 * Formats the given value.
-	 * @param string $value the value to format.
-	 * @return string the formatted value.
-	 */
-	public function format($value)
-	{
-		return Yii::app()->numberFormatter->formatNumber($this->format, $value);
-	}
+    /**
+     * Formats the given value.
+     * @param string $value the value to format.
+     * @return string the formatted value.
+     */
+    public function format($value)
+    {
+        return Yii::app()->numberFormatter->formatNumber($this->format, $value);
+    }
 }

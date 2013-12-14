@@ -9,13 +9,13 @@
 
 class PercentageFormatter extends BaseFormatter
 {
-	/**
-	 * Formats the given value.
-	 * @param string $value the value to format.
-	 * @return string the formatted value.
-	 */
-	public function format($value)
-	{
-		return Yii::app()->numberFormatter->formatPercentage($value);
-	}
+    /**
+     * Formats the given value.
+     * @param string $value the value to format.
+     * @return string the formatted value.
+     */
+    public function format($value)
+    {
+        return Yii::app()->numberFormatter->formatPercentage($value);
+    }
 }

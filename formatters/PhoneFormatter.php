@@ -15,8 +15,9 @@ class PhoneFormatter extends BaseFormatter
      */
     public function format($value)
     {
+        $cc = $this->locale->getTerritoryID($this->locale->getId());
         $phoneNumber = Yii::app()->phoneNumber;
-        $mPhoneNumber = $phoneNumber->parse($value, 'UA');
+        $mPhoneNumber = $phoneNumber->parse($value, $cc);
 
         if (!$phoneNumber->validate($mPhoneNumber)) {
             return '';
