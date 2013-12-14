@@ -6,11 +6,6 @@
  * @license http://www.opensource.org/licenses/bsd-license.php New BSD License
  */
 
-require_once dirname(__FILE__) . '/libphonenumber/libphonenumber.php';
-
-use libphonenumber\PhoneNumberUtil;
-use libphonenumber\PhoneNumberFormat;
-
 class PhoneFormatter extends BaseFormatter
 {
     /**
@@ -20,13 +15,13 @@ class PhoneFormatter extends BaseFormatter
      */
     public function format($value)
     {
-        $util = PhoneNumberUtil::getInstance();
-        $mPhoneNumber = $util->parse($value, 'UA');
+        $phoneNumber = Yii::app()->phoneNumber;
+        $mPhoneNumber = $phoneNumber->parse($value, 'UA');
 
-        if (!$util->isValidNumber($mPhoneNumber)) {
+        if (!$phoneNumber->validate($mPhoneNumber)) {
             return '';
         } else {
-            return $util->format($mPhoneNumber, PhoneNumberFormat::RFC3966);
+            return $phoneNumber->toInternational($mPhoneNumber);
         }
     }
 }
