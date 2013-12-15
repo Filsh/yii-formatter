@@ -17,17 +17,11 @@ class PhoneFormatter extends BaseFormatter
      */
     public function format($value)
     {
-        if(empty($this->country)) {
-            throw new Exception('Invalid country code.');
-        }
-        
-        $phoneNumber = Yii::app()->phoneNumber;
-        $mPhoneNumber = $phoneNumber->parse($value, $this->country);
-        
-        if (!$phoneNumber->validate($mPhoneNumber)) {
+        $mPhoneNumber = Yii::app()->phone->parse($value, $this->country);
+        if (!Yii::app()->phone->validate($mPhoneNumber)) {
             return '';
         } else {
-            return $phoneNumber->toInternational($mPhoneNumber);
+            return Yii::app()->phone->toInternational($mPhoneNumber);
         }
     }
 }
